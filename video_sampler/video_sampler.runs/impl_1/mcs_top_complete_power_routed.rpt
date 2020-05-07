@@ -1,0 +1,1312 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date             : Tue Dec  3 15:32:36 2019
+| Host             : LAPTOP-GGPIPL6E running 64-bit major release  (build 9200)
+| Command          : report_power -file mcs_top_complete_power_routed.rpt -pb mcs_top_complete_power_summary_routed.pb -rpx mcs_top_complete_power_routed.rpx
+| Design           : mcs_top_complete
+| Device           : xc7a100tcsg324-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 0.388        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 0.284        |
+| Device Static (W)        | 0.104        |
+| Effective TJA (C/W)      | 4.6          |
+| Max Ambient (C)          | 83.2         |
+| Junction Temperature (C) | 26.8         |
+| Confidence Level         | Low          |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.012 |       10 |       --- |             --- |
+| Slice Logic              |     0.007 |     4778 |       --- |             --- |
+|   LUT as Logic           |     0.006 |     1846 |     63400 |            2.91 |
+|   CARRY4                 |    <0.001 |      157 |     15850 |            0.99 |
+|   LUT as Distributed RAM |    <0.001 |      272 |     19000 |            1.43 |
+|   Register               |    <0.001 |     1559 |    126800 |            1.23 |
+|   F7/F8 Muxes            |    <0.001 |       78 |     63400 |            0.12 |
+|   LUT as Shift Register  |    <0.001 |       43 |     19000 |            0.23 |
+|   Others                 |     0.000 |      442 |       --- |             --- |
+| Signals                  |     0.018 |     3598 |       --- |             --- |
+| Block RAM                |     0.126 |      125 |       135 |           92.59 |
+| MMCM                     |     0.106 |        1 |         6 |           16.67 |
+| DSPs                     |     0.001 |        1 |       240 |            0.42 |
+| I/O                      |     0.012 |      103 |       210 |           49.05 |
+| XADC                     |     0.002 |        1 |       --- |             --- |
+| Static Power             |     0.104 |          |           |                 |
+| Total                    |     0.388 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
++-----------+-------------+-----------+-------------+------------+
+| Vccint    |       1.000 |     0.173 |       0.154 |      0.019 |
+| Vccaux    |       1.800 |     0.077 |       0.059 |      0.018 |
+| Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.014 |       0.011 |      0.003 |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccadc    |       1.800 |     0.021 |       0.001 |      0.020 |
++-----------+-------------+-----------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                           |                                                                                                            |
+|                             |            |                                                        |                                                                                                            |
+| Overall confidence level    | Low        |                                                        |                                                                                                            |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 4.6                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 4.6                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++----------------------+---------------------------------------+-----------------+
+| Clock                | Domain                                | Constraint (ns) |
++----------------------+---------------------------------------+-----------------+
+| clk                  | clk                                   |            10.0 |
+| clk_100M_mmcm_fpro   | clk_mmcm_unit/inst/clk_100M_mmcm_fpro |            10.0 |
+| clk_100M_mmcm_fpro_1 | clk_mmcm_unit/inst/clk_100M_mmcm_fpro |            10.0 |
+| clk_25M_mmcm_fpro    | clk_mmcm_unit/inst/clk_25M_mmcm_fpro  |            40.0 |
+| clk_25M_mmcm_fpro_1  | clk_mmcm_unit/inst/clk_25M_mmcm_fpro  |            40.0 |
+| clkfbout_mmcm_fpro   | clk_mmcm_unit/inst/clkfbout_mmcm_fpro |            10.0 |
+| clkfbout_mmcm_fpro_1 | clk_mmcm_unit/inst/clkfbout_mmcm_fpro |            10.0 |
+| sys_clk_pin          | clk                                   |            10.0 |
++----------------------+---------------------------------------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++------------------------------------------------------------------------------------------------+-----------+
+| Name                                                                                           | Power (W) |
++------------------------------------------------------------------------------------------------+-----------+
+| mcs_top_complete                                                                               |     0.284 |
+|   clk_mmcm_unit                                                                                |     0.106 |
+|     inst                                                                                       |     0.106 |
+|   cpu_unit                                                                                     |     0.032 |
+|     inst                                                                                       |     0.032 |
+|       dlmb                                                                                     |    <0.001 |
+|         U0                                                                                     |    <0.001 |
+|       dlmb_cntlr                                                                               |    <0.001 |
+|         U0                                                                                     |    <0.001 |
+|       ilmb                                                                                     |     0.000 |
+|         U0                                                                                     |     0.000 |
+|       ilmb_cntlr                                                                               |    <0.001 |
+|         U0                                                                                     |    <0.001 |
+|       iomodule_0                                                                               |    <0.001 |
+|         U0                                                                                     |    <0.001 |
+|       lmb_bram_I                                                                               |     0.020 |
+|         U0                                                                                     |     0.020 |
+|           inst_blk_mem_gen                                                                     |     0.020 |
+|             gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen                              |     0.020 |
+|               valid.cstr                                                                       |     0.020 |
+|                 ramloop[0].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[10].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[11].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[12].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[13].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[14].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[15].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[16].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[17].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[18].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[19].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[1].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[20].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[21].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[22].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[23].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[24].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[25].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[26].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[27].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[28].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[29].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[2].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[30].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[31].ram.r                                                              |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[3].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[4].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[5].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[6].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[7].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[8].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|                 ramloop[9].ram.r                                                               |    <0.001 |
+|                   prim_noinit.ram                                                              |    <0.001 |
+|       microblaze_I                                                                             |     0.011 |
+|         U0                                                                                     |     0.011 |
+|           MicroBlaze_Core_I                                                                    |     0.011 |
+|             Area.Core                                                                          |     0.011 |
+|               Byte_Doublet_Handle_I                                                            |    <0.001 |
+|                 BYTE_0_1_I                                                                     |    <0.001 |
+|                   Using_FPGA.Native                                                            |    <0.001 |
+|                 BYTE_2_3_I                                                                     |    <0.001 |
+|                   Using_FPGA.Native                                                            |    <0.001 |
+|                 Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.EXT_DATA_WRITE_MUX_MSB_I    |    <0.001 |
+|                   GEN4_LOOP[0].BYTESTEER_LUT6                                                  |    <0.001 |
+|                     Using_FPGA.Native                                                          |    <0.001 |
+|                   GEN4_LOOP[1].BYTESTEER_LUT6                                                  |    <0.001 |
+|                     Using_FPGA.Native                                                          |    <0.001 |
+|                   GEN4_LOOP[2].BYTESTEER_LUT6                                                  |    <0.001 |
+|                     Using_FPGA.Native                                                          |    <0.001 |
+|                   GEN4_LOOP[3].BYTESTEER_LUT6                                                  |    <0.001 |
+|                     Using_FPGA.Native                                                          |    <0.001 |
+|                   GEN4_LOOP[4].BYTESTEER_LUT6                                                  |    <0.001 |
+|                     Using_FPGA.Native                                                          |    <0.001 |
+|                   GEN4_LOOP[5].BYTESTEER_LUT6                                                  |    <0.001 |
+|                     Using_FPGA.Native                                                          |    <0.001 |
+|                   GEN4_LOOP[6].BYTESTEER_LUT6                                                  |    <0.001 |
+|                     Using_FPGA.Native                                                          |    <0.001 |
+|                   GEN4_LOOP[7].BYTESTEER_LUT6                                                  |    <0.001 |
+|                     Using_FPGA.Native                                                          |    <0.001 |
+|                 Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.GEN4_LOOP[0].BYTESTEER_LUT6 |    <0.001 |
+|                   Using_FPGA.Native                                                            |    <0.001 |
+|                 Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.GEN4_LOOP[1].BYTESTEER_LUT6 |    <0.001 |
+|                   Using_FPGA.Native                                                            |    <0.001 |
+|                 Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.GEN4_LOOP[2].BYTESTEER_LUT6 |    <0.001 |
+|                   Using_FPGA.Native                                                            |    <0.001 |
+|                 Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.GEN4_LOOP[3].BYTESTEER_LUT6 |    <0.001 |
+|                   Using_FPGA.Native                                                            |    <0.001 |
+|                 Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.READ_SEL_LEFT_I             |    <0.001 |
+|                 Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.READ_SEL_RIGHT_I            |    <0.001 |
+|                 Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.WRITE_MSB_SEL_I             |    <0.001 |
+|                   Using_FPGA.Native                                                            |    <0.001 |
+|                 byte_selects_i_INST                                                            |    <0.001 |
+|                   Using_FPGA.Native                                                            |    <0.001 |
+|               Data_Flow_I                                                                      |     0.009 |
+|                 ALU_I                                                                          |     0.003 |
+|                   No_Carry_Decoding.CarryIn_MUXCY                                              |    <0.001 |
+|                   No_Carry_Decoding.alu_carry_select_LUT                                       |     0.000 |
+|                   Using_FPGA.ALL_Bits[0].ALU_Bit_I1                                            |    <0.001 |
+|                     Last_Bit.I_ALU_LUT_2                                                       |    <0.001 |
+|                     Last_Bit.I_ALU_LUT_V5                                                      |    <0.001 |
+|                     Last_Bit.MULT_AND_I                                                        |    <0.001 |
+|                     Last_Bit.MUXCY_XOR_I                                                       |     0.000 |
+|                     Last_Bit.Pre_MUXCY_I                                                       |    <0.001 |
+|                   Using_FPGA.ALL_Bits[10].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[11].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[12].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |    <0.001 |
+|                   Using_FPGA.ALL_Bits[13].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[14].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[15].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[16].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |    <0.001 |
+|                   Using_FPGA.ALL_Bits[17].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[18].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[19].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[1].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[20].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |    <0.001 |
+|                   Using_FPGA.ALL_Bits[21].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[22].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[23].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[24].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |    <0.001 |
+|                   Using_FPGA.ALL_Bits[25].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[26].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[27].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[28].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |    <0.001 |
+|                   Using_FPGA.ALL_Bits[29].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[2].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[30].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[31].ALU_Bit_I1                                           |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[3].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[4].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |    <0.001 |
+|                   Using_FPGA.ALL_Bits[5].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[6].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[7].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                   Using_FPGA.ALL_Bits[8].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |    <0.001 |
+|                   Using_FPGA.ALL_Bits[9].ALU_Bit_I1                                            |    <0.001 |
+|                     Not_Last_Bit.I_ALU_LUT_V5                                                  |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Not_Last_Bit.MUXCY_XOR_I                                                   |     0.000 |
+|                 MSR_Reg_I                                                                      |    <0.001 |
+|                   MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I                                 |    <0.001 |
+|                     MSR_I                                                                      |    <0.001 |
+|                   MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I                                 |    <0.001 |
+|                     MSR_I                                                                      |    <0.001 |
+|                   MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I                                 |    <0.001 |
+|                     MSR_I                                                                      |    <0.001 |
+|                 Operand_Select_I                                                               |     0.001 |
+|                   OpSelect_Bits[0].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[10].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[11].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[12].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[13].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[14].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[15].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[16].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[17].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[18].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[19].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[1].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[20].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[21].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[22].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[23].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[24].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[25].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[26].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[27].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[28].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[29].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[2].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[30].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[31].Operand_Select_Bit_I                                       |    <0.001 |
+|                     Both_PC_and_MSR.Op1_LUT6                                                   |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[3].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[4].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[5].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[6].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[7].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[8].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                   OpSelect_Bits[9].Operand_Select_Bit_I                                        |    <0.001 |
+|                     Only_PC.Op1_LUT6                                                           |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     Op1_DFF                                                                    |    <0.001 |
+|                     Op1_Reg_DFF                                                                |    <0.001 |
+|                     Op2_DFF                                                                    |    <0.001 |
+|                 PC_Module_I                                                                    |     0.003 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[15].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[16].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[17].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |    <0.001 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[18].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[19].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[20].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[21].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |    <0.001 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[22].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[23].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[24].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[25].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |    <0.001 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[26].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[27].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[28].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |     0.000 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |     0.000 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                   Not_All_Bits.Using_FPGA.PC_GEN[29].PC_Bit_I                                  |    <0.001 |
+|                     MUXCY_XOR_I                                                                |    <0.001 |
+|                     NewPC_Mux                                                                  |    <0.001 |
+|                     PC_OF_Buffer                                                               |    <0.001 |
+|                     SUM_I                                                                      |    <0.001 |
+|                     Set_DFF.PC_IF_DFF                                                          |    <0.001 |
+|                 Register_File_I                                                                |     0.001 |
+|                   Using_FPGA.Gen_RegFile[0].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[10].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[11].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[12].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[13].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[14].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[15].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[16].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[17].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[18].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[19].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[1].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[20].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[21].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[22].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[23].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[24].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[25].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[26].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[27].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[28].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[29].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[2].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[30].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[31].Register_File_Bit_I                               |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[3].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[4].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[5].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[6].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[7].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[8].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                   Using_FPGA.Gen_RegFile[9].Register_File_Bit_I                                |    <0.001 |
+|                     RegFile_X1                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                     RegFile_X2                                                                 |    <0.001 |
+|                       Using_FPGA.Native                                                        |    <0.001 |
+|                 Result_Mux_I                                                                   |    <0.001 |
+|                   Result_Mux_Bits[0].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[10].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[11].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[12].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[13].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[14].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[15].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[16].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[17].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[18].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[19].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[1].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[20].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[21].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[22].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[23].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[24].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[25].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[26].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[27].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[28].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[29].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[2].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[30].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[31].Result_Mux_Bit_I                                         |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[3].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[4].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[5].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[6].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[7].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[8].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                   Result_Mux_Bits[9].Result_Mux_Bit_I                                          |    <0.001 |
+|                     Data_Shift_Mux                                                             |    <0.001 |
+|                     Mul_ALU_Mux                                                                |    <0.001 |
+|                 Shift_Logic_Module_I                                                           |    <0.001 |
+|                   Shift_Logic_Bits[0].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[10].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[11].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[12].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[13].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[14].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[15].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[16].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[17].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[18].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[19].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[1].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[20].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[21].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[22].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[23].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[24].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[25].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[26].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[27].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[28].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[29].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[2].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[30].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[31].Shift_Logic_Bit_I                                       |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[3].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[4].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[5].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[6].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[7].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[8].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                   Shift_Logic_Bits[9].Shift_Logic_Bit_I                                        |    <0.001 |
+|                     Logic_LUT                                                                  |    <0.001 |
+|                     Shift_LUT                                                                  |    <0.001 |
+|                     Shift_Logic_Mux                                                            |    <0.001 |
+|                 Zero_Detect_I                                                                  |    <0.001 |
+|                   Part_Of_Zero_Carry_Start                                                     |    <0.001 |
+|                   Zero_Detecting[2].I_Part_Of_Zero_Detect                                      |     0.000 |
+|                   Zero_Detecting[3].I_Part_Of_Zero_Detect                                      |    <0.001 |
+|               Decode_I                                                                         |     0.002 |
+|                 PreFetch_Buffer_I                                                              |    <0.001 |
+|                   Buffer_DFFs[1].FDS_I                                                         |    <0.001 |
+|                   Buffer_DFFs[1].MUXCY_XOR_I                                                   |     0.000 |
+|                   Buffer_DFFs[2].FDS_I                                                         |    <0.001 |
+|                   Buffer_DFFs[2].MUXCY_XOR_I                                                   |     0.000 |
+|                   Buffer_DFFs[3].FDS_I                                                         |    <0.001 |
+|                   Buffer_DFFs[3].MUXCY_XOR_I                                                   |     0.000 |
+|                   PreFetch_Buffers[0].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[10].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[11].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[12].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[13].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[14].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[15].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[16].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[17].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[18].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[19].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[1].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[20].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[21].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[22].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[23].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[24].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[25].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[26].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[27].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[28].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[29].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[2].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[30].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[31].SRL16E_I                                                |    <0.001 |
+|                   PreFetch_Buffers[3].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[4].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[5].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[6].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[7].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[8].SRL16E_I                                                 |    <0.001 |
+|                   PreFetch_Buffers[9].SRL16E_I                                                 |    <0.001 |
+|                   of_valid_FDR_I                                                               |    <0.001 |
+|                 Using_FPGA.ALU_Carry_FDRE                                                      |    <0.001 |
+|                 Using_FPGA.ALU_Carry_MUXCY                                                     |    <0.001 |
+|                 Using_FPGA.ALU_OP0_FDRE                                                        |    <0.001 |
+|                 Using_FPGA.ALU_OP1_FDRE                                                        |    <0.001 |
+|                 Using_FPGA.Correct_Carry_MUXCY                                                 |    <0.001 |
+|                 Using_FPGA.Force1_FDRE                                                         |    <0.001 |
+|                 Using_FPGA.Force2_FDRE                                                         |    <0.001 |
+|                 Using_FPGA.Force_Val1_FDRE                                                     |    <0.001 |
+|                 Using_FPGA.Force_Val2_FDRSE                                                    |    <0.001 |
+|                 Using_FPGA.I_correct_Carry_Select                                              |     0.000 |
+|                 Using_FPGA.Intr_Carry_MUXCY                                                    |     0.000 |
+|                 Using_FPGA.MULT_AND_I                                                          |    <0.001 |
+|                 Using_FPGA.MUXCY_JUMP_CARRY                                                    |     0.000 |
+|                 Using_FPGA.MUXCY_JUMP_CARRY2                                                   |    <0.001 |
+|                 Using_FPGA.MUXCY_JUMP_CARRY3                                                   |    <0.001 |
+|                 Using_FPGA.New_Carry_MUXCY                                                     |    <0.001 |
+|                 Using_FPGA.OpSel1_SPR_Select_LUT_1                                             |    <0.001 |
+|                 Using_FPGA.OpSel1_SPR_Select_LUT_2                                             |    <0.001 |
+|                 Using_FPGA.OpSel1_SPR_Select_LUT_3                                             |    <0.001 |
+|                 Using_FPGA.OpSel1_SPR_Select_LUT_4                                             |    <0.001 |
+|                 Using_FPGA.Reg_Test_Equal_FDSE                                                 |    <0.001 |
+|                 Using_FPGA.Reg_Test_Equal_N_FDRE                                               |    <0.001 |
+|                 Using_FPGA.Res_Forward1_LUT1                                                   |    <0.001 |
+|                 Using_FPGA.Res_Forward1_LUT2                                                   |    <0.001 |
+|                 Using_FPGA.Res_Forward1_LUT3                                                   |    <0.001 |
+|                 Using_FPGA.Res_Forward1_LUT4                                                   |    <0.001 |
+|                 Using_FPGA.Res_Forward2_LUT1                                                   |    <0.001 |
+|                 Using_FPGA.Res_Forward2_LUT2                                                   |    <0.001 |
+|                 Using_FPGA.Res_Forward2_LUT3                                                   |    <0.001 |
+|                 Using_FPGA.Res_Forward2_LUT4                                                   |    <0.001 |
+|                 Using_FPGA.Use_Reg_Neg_DI_FDRE                                                 |    <0.001 |
+|                 Using_FPGA.Use_Reg_Neg_S_FDRE                                                  |    <0.001 |
+|                 Using_FPGA.clean_iReady_MuxCY                                                  |    <0.001 |
+|                 Using_FPGA.force_di1_LUT3                                                      |    <0.001 |
+|                 Using_FPGA.force_di2_LUT4                                                      |    <0.001 |
+|                 Using_FPGA.force_jump1_LUT3                                                    |    <0.001 |
+|                 Using_FPGA.force_jump2_LUT4                                                    |    <0.001 |
+|                 Using_FPGA.iFetch_MuxCY_1                                                      |     0.000 |
+|                 Using_FPGA.iFetch_MuxCY_2                                                      |    <0.001 |
+|                 Using_FPGA.of_PipeRun_MuxCY_1                                                  |    <0.001 |
+|                 Using_FPGA.of_PipeRun_Select_LUT5                                              |    <0.001 |
+|                 Using_FPGA.of_PipeRun_without_dready_LUT5                                      |    <0.001 |
+|                 write_Reg_I_LUT                                                                |    <0.001 |
+|             Reset_DFF                                                                          |    <0.001 |
+|             Using_Async_Wakeup_0.Wakeup_DFF                                                    |    <0.001 |
+|             Using_Async_Wakeup_1.Wakeup_DFF                                                    |    <0.001 |
+|       rst_0                                                                                    |    <0.001 |
+|         U0                                                                                     |    <0.001 |
+|           EXT_LPF                                                                              |    <0.001 |
+|             ACTIVE_HIGH_EXT.ACT_HI_EXT                                                         |    <0.001 |
+|             ACTIVE_LOW_AUX.ACT_LO_AUX                                                          |    <0.001 |
+|           SEQ                                                                                  |    <0.001 |
+|             SEQ_COUNTER                                                                        |    <0.001 |
+|   mmio_unit                                                                                    |     0.018 |
+|     adsr_slot13                                                                                |     0.005 |
+|       adsr_unit                                                                                |     0.004 |
+|     ddfs_slot12                                                                                |     0.005 |
+|       ddfs_unit                                                                                |     0.003 |
+|     debounce_slot7                                                                             |    <0.001 |
+|       db_counter_unit                                                                          |    <0.001 |
+|       fsm_cell_gen[0].db_fsm_unit                                                              |    <0.001 |
+|       fsm_cell_gen[1].db_fsm_unit                                                              |    <0.001 |
+|       fsm_cell_gen[2].db_fsm_unit                                                              |    <0.001 |
+|       fsm_cell_gen[3].db_fsm_unit                                                              |    <0.001 |
+|       fsm_cell_gen[4].db_fsm_unit                                                              |    <0.001 |
+|     gpi_slot3                                                                                  |    <0.001 |
+|     gpo_slot2                                                                                  |    <0.001 |
+|     i2c_slot10                                                                                 |    <0.001 |
+|       i2c_unit                                                                                 |    <0.001 |
+|     led_slot8                                                                                  |    <0.001 |
+|       led_mux8_unit                                                                            |    <0.001 |
+|     ps2_slot11                                                                                 |     0.001 |
+|       ps2_unit                                                                                 |     0.001 |
+|         fifo_unit                                                                              |    <0.001 |
+|           c_unit                                                                               |    <0.001 |
+|           f_unit                                                                               |    <0.001 |
+|             array_reg_reg_0_63_0_2                                                             |    <0.001 |
+|             array_reg_reg_0_63_3_5                                                             |    <0.001 |
+|             array_reg_reg_0_63_6_6                                                             |    <0.001 |
+|             array_reg_reg_0_63_7_7                                                             |    <0.001 |
+|             array_reg_reg_128_191_0_2                                                          |    <0.001 |
+|             array_reg_reg_128_191_3_5                                                          |    <0.001 |
+|             array_reg_reg_128_191_6_6                                                          |    <0.001 |
+|             array_reg_reg_128_191_7_7                                                          |    <0.001 |
+|             array_reg_reg_192_255_0_2                                                          |    <0.001 |
+|             array_reg_reg_192_255_3_5                                                          |    <0.001 |
+|             array_reg_reg_192_255_6_6                                                          |    <0.001 |
+|             array_reg_reg_192_255_7_7                                                          |    <0.001 |
+|             array_reg_reg_64_127_0_2                                                           |    <0.001 |
+|             array_reg_reg_64_127_3_5                                                           |    <0.001 |
+|             array_reg_reg_64_127_6_6                                                           |    <0.001 |
+|             array_reg_reg_64_127_7_7                                                           |    <0.001 |
+|         ps2_rx_unit                                                                            |    <0.001 |
+|         ps2_tx_unit                                                                            |    <0.001 |
+|     spi_slot9                                                                                  |    <0.001 |
+|       spi_unit                                                                                 |    <0.001 |
+|     timer_slot0                                                                                |    <0.001 |
+|     uart_slot1                                                                                 |     0.002 |
+|       uart_unit                                                                                |     0.001 |
+|         baud_gen_unit                                                                          |    <0.001 |
+|         fifo_rx_unit                                                                           |    <0.001 |
+|           c_unit                                                                               |    <0.001 |
+|           f_unit                                                                               |    <0.001 |
+|             array_reg_reg_0_63_0_2                                                             |    <0.001 |
+|             array_reg_reg_0_63_3_5                                                             |    <0.001 |
+|             array_reg_reg_0_63_6_6                                                             |    <0.001 |
+|             array_reg_reg_0_63_7_7                                                             |    <0.001 |
+|             array_reg_reg_128_191_0_2                                                          |    <0.001 |
+|             array_reg_reg_128_191_3_5                                                          |    <0.001 |
+|             array_reg_reg_128_191_6_6                                                          |    <0.001 |
+|             array_reg_reg_128_191_7_7                                                          |    <0.001 |
+|             array_reg_reg_192_255_0_2                                                          |    <0.001 |
+|             array_reg_reg_192_255_3_5                                                          |    <0.001 |
+|             array_reg_reg_192_255_6_6                                                          |    <0.001 |
+|             array_reg_reg_192_255_7_7                                                          |    <0.001 |
+|             array_reg_reg_64_127_0_2                                                           |    <0.001 |
+|             array_reg_reg_64_127_3_5                                                           |    <0.001 |
+|             array_reg_reg_64_127_6_6                                                           |    <0.001 |
+|             array_reg_reg_64_127_7_7                                                           |    <0.001 |
+|         fifo_tx_unit                                                                           |    <0.001 |
+|           c_unit                                                                               |    <0.001 |
+|           f_unit                                                                               |    <0.001 |
+|             array_reg_reg_0_63_0_2                                                             |    <0.001 |
+|             array_reg_reg_0_63_3_5                                                             |    <0.001 |
+|             array_reg_reg_0_63_6_6                                                             |    <0.001 |
+|             array_reg_reg_0_63_7_7                                                             |    <0.001 |
+|             array_reg_reg_128_191_0_2                                                          |    <0.001 |
+|             array_reg_reg_128_191_3_5                                                          |    <0.001 |
+|             array_reg_reg_128_191_6_6                                                          |    <0.001 |
+|             array_reg_reg_128_191_7_7                                                          |    <0.001 |
+|             array_reg_reg_192_255_0_2                                                          |    <0.001 |
+|             array_reg_reg_192_255_3_5                                                          |    <0.001 |
+|             array_reg_reg_192_255_6_6                                                          |    <0.001 |
+|             array_reg_reg_192_255_7_7                                                          |    <0.001 |
+|             array_reg_reg_64_127_0_2                                                           |    <0.001 |
+|             array_reg_reg_64_127_3_5                                                           |    <0.001 |
+|             array_reg_reg_64_127_6_6                                                           |    <0.001 |
+|             array_reg_reg_64_127_7_7                                                           |    <0.001 |
+|         uart_rx_unit                                                                           |    <0.001 |
+|         uart_tx_unit                                                                           |    <0.001 |
+|     xadc_slot5                                                                                 |     0.003 |
+|       xadc_unit                                                                                |     0.002 |
+|   ps2c_IOBUF_inst                                                                              |    <0.001 |
+|   ps2d_IOBUF_inst                                                                              |    <0.001 |
+|   tmp_i2c_sda_IOBUF_inst                                                                       |     0.000 |
+|   video_sys_unit                                                                               |     0.115 |
+|     buf_unit                                                                                   |     0.102 |
+|       frame_src_unit                                                                           |     0.102 |
+|         vram_unit                                                                              |     0.101 |
+|           ram_256k_unit                                                                        |     0.051 |
+|           ram_64k_unit                                                                         |     0.050 |
+|     frame_counter_unit                                                                         |     0.003 |
+|     v0_vga_sync_unit                                                                           |     0.002 |
+|       line_unit                                                                                |     0.002 |
+|         line_fifo_unit                                                                         |     0.002 |
+|           bram_fifo_unit                                                                       |     0.002 |
+|       sync_unit                                                                                |    <0.001 |
+|         counter_unit                                                                           |    <0.001 |
+|     v1_mouse_unit                                                                              |     0.001 |
+|       mouse_src_unit                                                                           |     0.001 |
+|         ram_unit                                                                               |    <0.001 |
+|     v2_osd_unit                                                                                |     0.004 |
+|       osd_src_unit                                                                             |     0.004 |
+|         font_unit                                                                              |     0.002 |
+|         text_ram_unit                                                                          |     0.002 |
+|     v3_ghost_unit                                                                              |     0.002 |
+|       ghost_src_unit                                                                           |     0.001 |
+|         ram_unit                                                                               |    <0.001 |
+|     v6_gray_unit                                                                               |    <0.001 |
+|       rgb2gray_unit                                                                            |    <0.001 |
+|     v7_bar_unit                                                                                |    <0.001 |
+|       bar_src_unit                                                                             |    <0.001 |
++------------------------------------------------------------------------------------------------+-----------+
+
+

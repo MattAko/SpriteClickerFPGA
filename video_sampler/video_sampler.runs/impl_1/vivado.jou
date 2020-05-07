@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Dec  3 15:29:23 2019
+# Process ID: 15748
+# Current directory: C:/Users/matta/Vivado_projects/video_sampler/video_sampler.runs/impl_1
+# Command line: vivado.exe -log mcs_top_complete.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source mcs_top_complete.tcl -notrace
+# Log file: C:/Users/matta/Vivado_projects/video_sampler/video_sampler.runs/impl_1/mcs_top_complete.vdi
+# Journal file: C:/Users/matta/Vivado_projects/video_sampler/video_sampler.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source mcs_top_complete.tcl -notrace

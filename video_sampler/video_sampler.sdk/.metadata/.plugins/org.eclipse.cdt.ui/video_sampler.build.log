@@ -1,0 +1,21 @@
+11:40:02 **** Auto Build of configuration Debug for project video_sampler ****
+make all 
+'Building file: ../src/main.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../standalone_bsp_0/microblaze_I/include -mno-xl-reorder -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+'Finished building: ../src/main.cpp'
+' '
+'Building target: video_sampler.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_I/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "video_sampler.elf"  ./src/adsr_core.o ./src/chu_init.o ./src/ddfs_core.o ./src/gpio_cores.o ./src/i2c_core.o ./src/main.o ./src/main_video_test.o ./src/ps2_core.o ./src/spi_core.o ./src/sseg_core.o ./src/timer_core.o ./src/uart_core.o ./src/vga_core.o ./src/xadc_core.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: video_sampler.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size video_sampler.elf  |tee "video_sampler.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  36796	   1324	   3240	  41360	   a190	video_sampler.elf
+'Finished building: video_sampler.elf.size'
+' '
+
+11:40:05 Build Finished (took 2s.983ms)
+

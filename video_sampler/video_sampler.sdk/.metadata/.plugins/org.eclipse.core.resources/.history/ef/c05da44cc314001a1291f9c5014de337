@@ -1,0 +1,99 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Dec 1, 2019
+ *      Author: Matthew
+ */
+
+//#define _DEBUG
+#include "chu_init.h"
+#include "gpio_cores.h"
+#include "vga_core.h"
+
+// external core instantiation
+GpoCore led(get_slot_addr(BRIDGE_BASE, S2_LED));
+GpiCore sw(get_slot_addr(BRIDGE_BASE, S3_SW));
+Ps2Core ps2(get_slot_addr(BRIDGE_BASE, S11_PS2));
+FrameCore frame(FRAME_BASE);
+GpvCore bar(get_sprite_addr(BRIDGE_BASE, V7_BAR));
+GpvCore gray(get_sprite_addr(BRIDGE_BASE, V6_GRAY));
+SpriteCore ghost(get_sprite_addr(BRIDGE_BASE, V3_GHOST), 1024);
+SpriteCore mouse(get_sprite_addr(BRIDGE_BASE, V1_MOUSE), 1024);
+OsdCore osd(get_sprite_addr(BRIDGE_BASE, V2_OSD));
+
+
+
+void mouse_check(SpriteCore *mouse_p) {
+   int x, y;
+
+   mouse_p->bypass(0);
+   // clear top and bottom lines
+   for (int i = 0; i < 32; i++) {
+      mouse_p->wr_mem(i, 0);
+      mouse_p->wr_mem(31 * 32 + i, 0);
+   }
+
+   // slowly move mouse pointer
+   x = 0;
+   y = 0;
+   for (int i = 0; i < 80; i++) {
+      mouse_p->move_xy(x, y);
+      sleep_ms(50);
+      x = x + 4;
+      y = y + 3;
+   }
+   sleep_ms(3000);
+   // load top and bottom rows
+   for (int i = 0; i < 32; i++) {
+      sleep_ms(20);
+      mouse_p->wr_mem(i, 0x00f);
+      mouse_p->wr_mem(31 * 32 + i, 0xf00);
+   }
+   sleep_ms(3000);
+}
+
+void ps2_check(Ps2Core *ps2_p) {
+   int id;
+   int lbtn, rbtn, xmov, ymov;
+   char ch;
+   unsigned long last;
+
+   uart.disp("\n\rPS2 device (1-keyboard / 2-mouse): ");
+   id = ps2_p->init();
+   uart.disp(id);
+   uart.disp("\n\r");
+   last = now_ms();
+   do {
+      if (id == 2) {  // mouse
+         if (ps2_p->get_mouse_activity(&lbtn, &rbtn, &xmov, &ymov)) {
+            uart.disp("[");
+            uart.disp(lbtn);
+            uart.disp(", ");
+            uart.disp(rbtn);
+            uart.disp(", ");
+            uart.disp(xmov);
+            uart.disp(", ");
+            uart.disp(ymov);
+            uart.disp("] \r\n");
+            last = now_ms();
+
+         }   // end get_mouse_activitiy()
+      } else {
+         if (ps2_p->get_kb_ch(&ch)) {
+            uart.disp(ch);
+            uart.disp(" ");
+            last = now_ms();
+         } // end get_kb_ch()
+      }  // end id==2
+   } while (now_ms() - last < 5000);
+   uart.disp("\n\rExit PS2 test \n\r");
+
+}
+
+
+int main(){
+	while(1){
+		ps2_check(&ps2);
+	}
+	return 0;
+}
